@@ -11,7 +11,16 @@ export const ConversionTable = {
 		Celcius: 1,
 		Fahrenheit: (c: number) => c * 1.8 + 32,
 	},
-	Longitud: {},
+	Longitud: {
+    "Milímetro":1000,
+    "Centímetro":100, 
+    "Metro":1, 
+    "Kilómetro":0.001, 
+    "Pulgada":39.3701, 
+    "Pie":3.2808, 
+    "Yarda":1.0936,
+    "Milla":0.00062137
+  },
 } as const
 
 type UnidadesType<T> = {
@@ -19,7 +28,7 @@ type UnidadesType<T> = {
 }
 
 export const Unidades = Object.fromEntries(
-	Object.entries(ConversionTable).map((key, value) => [
+	Object.entries(ConversionTable).map(([key, value]) => [
 		key,
 		Object.keys(value),
 	])
