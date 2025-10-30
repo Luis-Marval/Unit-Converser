@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(19, 48, 27);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,18 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -33,10 +25,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
 }
 
 button {
-  border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -46,23 +38,48 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.form {
+  background-color: #3d3d3d;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.resultado {
+  background-color: #3d3d3d;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.oculto {
+  display: none;
+}
+
+.unitsBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.unitsButton {
+  flex-grow: 1;
+}
+
+.unitsButton.selected {
+  background-color: #3d3d3d;
+}
+
+.convertButton,.resetButton {
+  margin-top: 15px;
+}
+
+.inputResult{
+  border: none;
+  outline: none;
+  cursor: auto;
+  background-color: #3d3d3d;
+}
+.inputResult{
+  border: none;
 }
