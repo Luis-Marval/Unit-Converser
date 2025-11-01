@@ -2,11 +2,5 @@
   "name": "convert-unit",
   "private": true,
   "version": "0.4.0",
-  "type": "module",
-  "scripts": {
-    "build": "pnpm --filter ./back-end/ build && pnpm --filter ./front-end/ build",
-    "dev": "pnpm --filter ./back-end/ dev && pnpm --filter ./front-end/ dev",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  }
+  "type": "module"
 }

@@ -1,5 +1,7 @@
 import type { Response, Request, NextFunction } from 'express'
 import { ConversionTable, Unidades } from './ConvertionTable.js'
+import {join } from "node:path"
+import { fileURLToPath } from 'url'
 
 type TiposUnidad = keyof typeof ConversionTable
 
@@ -11,7 +13,7 @@ interface ConvertJson {
 }
 
 const allrutas = (req: Request, res: Response) => {
-	res.json({ message: 'hola' })
+  res.sendFile(join(fileURLToPath(import.meta.url), '../../../front-end/dist/index.html'));
 }
 
 const getUnits = (req: Request, res: Response) => {
@@ -19,9 +21,7 @@ const getUnits = (req: Request, res: Response) => {
 }
 
 const captura = (req: Request, res: Response) => {
-  console.time()
 	const cuerpo: ConvertJson = req.body
-	console.log(cuerpo)
   let result
 	switch (cuerpo.type) {
 		case 'Temperatura':
@@ -34,7 +34,6 @@ const captura = (req: Request, res: Response) => {
 			result = convertLongitud(cuerpo)
 			break
 	}
-  console.timeEnd()
   if(result == false){
     res.json({message:false})
   }

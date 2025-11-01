@@ -1,14 +1,14 @@
 import { ConversionTable, Unidades } from './ConvertionTable.js';
+import { join } from "node:path";
+import { fileURLToPath } from 'url';
 const allrutas = (req, res) => {
-    res.json({ message: 'hola' });
+    res.sendFile(join(fileURLToPath(import.meta.url), '../../../front-end/dist/index.html'));
 };
 const getUnits = (req, res) => {
     res.json({ Units: Unidades, tipos: Object.keys(ConversionTable) });
 };
 const captura = (req, res) => {
-    console.time();
     const cuerpo = req.body;
-    console.log(cuerpo);
     let result;
     switch (cuerpo.type) {
         case 'Temperatura':
@@ -21,7 +21,6 @@ const captura = (req, res) => {
             result = convertLongitud(cuerpo);
             break;
     }
-    console.timeEnd();
     if (result == false) {
         res.json({ message: false });
     }

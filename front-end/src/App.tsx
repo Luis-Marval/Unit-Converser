@@ -54,6 +54,7 @@ function App() {
       setFrom(0);
       setTo(1 || 0);
     }
+    handleReset()
     setResult(undefined);
   };
 
@@ -95,9 +96,6 @@ function App() {
     setResult(undefined);
     setError(null);
     setOculto(false);
-    if (tipos.length > 0) {
-      changeTipo(tipos[0]);
-    }
   };
 
   if (loadingConfig) {
@@ -203,7 +201,7 @@ function App() {
           <input
             id="result"
             type="text" className="inputResult"
-            value={result !== undefined ? result : ""}
+            value={result !== undefined ?  cantidad+" "+unidades[tipoActual][from as number]+ " = " + result+" "+unidades[tipoActual][to as number] : ""}
             readOnly
           />
           <button

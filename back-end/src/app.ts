@@ -9,7 +9,9 @@ const enRuta = join(fileURLToPath(import.meta.url), '../../../.env')
 loadEnvFile(enRuta)
 const { BackEndPort = '3000' } = process.env
 const app = express()
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(fileURLToPath(import.meta.url), '../../../front-end/dist')));
+}
 app.use(cors({
   origin: 'http://localhost:5173'
 }));
